@@ -309,3 +309,5 @@ const zend_function_entry cayley_functions[] = {
 	PHP_FE_END	/* Must be the last line in cayley_functions[] */
 };
 {% endcodeblock %}
+
+test
