@@ -169,6 +169,7 @@ cp: /Users/cayley/src/php7/php-7.0.14/ext/cayley/build/
 
 {% endcodeblock %}
 
+
 ./configure
 {% codeblock %}
 
@@ -231,7 +232,7 @@ rebuilding main/php_config.h.in
 ./configure --help |grep cayley
   --enable-cayley           Enable cayley support
 
-{$ endcodeblock %}
+{% endcodeblock %}
 
 就像help所说，我们编译php的，使用configure --enable-cayley就可以将cayley扩展编译到php主程序中了
 
@@ -283,7 +284,7 @@ hello word%
 所以让php知道它，扩展定义的zend_module_entry cayley_module_entry（它是联系扩展与PHP的重要纽带）
 {% codeblock %}
 
-/* {{{ cayley_module_entry
+/*  cayley_module_entry
  */
 zend_module_entry cayley_module_entry = {
 	STANDARD_MODULE_HEADER,	
@@ -298,7 +299,7 @@ zend_module_entry cayley_module_entry = {
 	STANDARD_MODULE_PROPERTIES
 };
 
-{% endcodebllck %}
+{% endcodeblock %}
 然后使用ZEND_FE()宏函数是对我们walu_hello函数的一个声明，如果我们有多个函数，可以直接以类似的形式添加到PHP_FE(confirm_cayley_compiled,	NULL)之前
 
 {% codeblock %}
@@ -307,6 +308,4 @@ const zend_function_entry cayley_functions[] = {
 	PHP_FE(confirm_cayley_compiled,	NULL)		/* For testing, remove later. */
 	PHP_FE_END	/* Must be the last line in cayley_functions[] */
 };
-{% endcodeblck %}
-
-
+{% endcodeblock %}
